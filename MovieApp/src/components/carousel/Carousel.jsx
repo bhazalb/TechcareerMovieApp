@@ -22,15 +22,15 @@ const Carousel = ({ data, loading, endpoint, title }) => {
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
-
+//sağa sola kaydırma menü kısmım
         const scrollAmount =
-            dir === "left"
+            dir === "left" //ne kadar kayacak hesaplama
                 ? container.scrollLeft - (container.offsetWidth + 20)
                 : container.scrollLeft + (container.offsetWidth + 20);
 
         container.scrollTo({
             left: scrollAmount,
-            behavior: "smooth",
+            behavior: "smooth", //animasyonlu geçiş
         });
     };
 
