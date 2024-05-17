@@ -1,19 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import "./style.scss";
 
-import "./style.scss"
-  
 const Genres = ({ data }) => {
     const { genres } = useSelector((state) => state.home);
+
+    // Check if genres is defined
+    if (!genres) {
+        return null; // or some fallback UI
+    }
 
     return (
         <div className="genres">
             {data?.map((g) => {
-                if (!genres[g]?.name) return;
+                const genre = genres[g];
+                if (!genre || !genre.name) return null;
                 return (
                     <div key={g} className="genre">
-                        {genres[g]?.name}
+                        {genre.name}
                     </div>
                 );
             })}

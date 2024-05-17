@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
-import CircleRating from "../circleRating/CircleRating";
+import CircleRating from "../circleRaiting/CircleRating";
 import Genres from "../genres/Genres";
 
 import "./style.scss";
@@ -22,15 +22,15 @@ const Carousel = ({ data, loading, endpoint, title }) => {
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
-//sağa sola kaydırma menü kısmım
+
         const scrollAmount =
-            dir === "left" //ne kadar kayacak hesaplama
+            dir === "left"
                 ? container.scrollLeft - (container.offsetWidth + 20)
                 : container.scrollLeft + (container.offsetWidth + 20);
 
         container.scrollTo({
             left: scrollAmount,
-            behavior: "smooth", //animasyonlu geçiş
+            behavior: "smooth",
         });
     };
 
