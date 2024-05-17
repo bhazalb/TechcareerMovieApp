@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { fetchDataFromApi } from "./utils/api";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getApiConfiguration } from "./store/homeSlice";
+import { getApiConfiguration , getGeneres } from "./store/homeSlice";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -15,34 +15,45 @@ import PageNotFound from "./pages/404/PageFound";
 
 function App() {
   const dispatch = useDispatch();
-  const url = useSelector((state) => state.home);
+  const { url } = useSelector((state) => state.home);
   console.log(url);
 
   useEffect(() => {
-    const fetchApiConfig = async () => {
-      try {
-        const res = await fetchDataFromApi("configuration"); // Doğru endpoint
-        console.log("API Response:", res);
+      fetchApiConfig();
+      genresCall();
+  }, []);
 
-        if (res && res.images && res.images.secure_base_url) {
+  const fetchApiConfig = () => {
+      fetchDataFromApi("/configuration").then((res) => {
+          console.log(res);
+
           const url = {
-            backdrop: res.images.secure_base_url + "original",
-            poster: res.images.secure_base_url + "original",
-            profile: res.images.secure_base_url + "original",
+              backdrop: res.images.secure_base_url + "original",
+              poster: res.images.secure_base_url + "original",
+              profile: res.images.secure_base_url + "original",
           };
 
           dispatch(getApiConfiguration(url));
-        } else {
-          console.error("API response does not contain the expected data");
-        }
-      } catch (error) {
-        console.error("Error fetching API configuration:", error);
-      }
-    };
+      });
+  };
 
-    fetchApiConfig();
-  }, [dispatch]);
+  const genresCall = async () => {
+      let promises = [];
+      let endPoints = ["tv", "movie"];
+      let allGenres = {};
 
+      endPoints.forEach((url) => {
+          promises.push(fetchDataFromApi(`/genre/${url}/list`));
+      });
+
+      const data = await Promise.all(promises);
+      console.log(data);
+      data.map(({ genres }) => {
+          return genres.map((item) => (allGenres[item.id] = item));
+      });
+
+      dispatch(getGenres(allGenres));
+  };
   return (
     <BrowserRouter>
       <Header />
