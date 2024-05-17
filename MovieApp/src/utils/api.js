@@ -1,18 +1,23 @@
-import axios from "axios";
+// ../utils/api.js dosyası
+import axios from 'axios';
 
-const BASE_URL = "https://api.themoviedb.org/3";
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '20a03b8e530cb18232dcb58a7d48fb13';
 
-
-const headers = {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGEwM2I4ZTUzMGNiMTgyMzJkY2I1OGE3ZDQ4ZmIxMyIsInN1YiI6IjY2M2E3ZTFjMGY3YjBkZDMwMDVkZGE4NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hyUs95GQCvN75vQzHQRlWM0pdlBzez11Rr29V7sZ7kw" 
+export const fetchDataFromApi = async (endpoint) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${endpoint}`, {
+      params: {
+        api_key: API_KEY,
+      },
+      headers: {
+        'Authorization': API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data from API:", error);
+    throw error;
+  }
 };
-
-export const fetchDataFromApi = async (url, params) => {
-    try {
-        const { data } = await axios.get(BASE_URL + url, { headers, params });
-        return data;
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
-};
+export default fetchDataFromApi;

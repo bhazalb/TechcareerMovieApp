@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
-import React from "react";
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // Doğru import
 import { Provider } from 'react-redux';
 import App from './App.jsx'; // Yolu doğru olduğundan emin olun
 import './index.scss';

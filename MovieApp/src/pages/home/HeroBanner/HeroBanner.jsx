@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";  //yönlendirme için kullandım
 import {useSelector} from "react-redux"
 import  "./style.scss";
 
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../../hooks/UseFetch";
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
@@ -39,9 +39,9 @@ const HeroBanner = () => {
  
             <ContentWrapper>
             <div className="heroBannerContent">
-                <span className="title">Welcome</span>
+                <span className="title">Merhaba</span>
                 <span className="subTitle">Keşfedilecek 
-                bir sürü film, TV şovu ve keşfedilecek oyuncu var. 
+                bir sürü film, TV şovu ve  oyuncu var. 
                 Heyecana sen de katıl!
                 </span>
                 <div className="searchInput">
