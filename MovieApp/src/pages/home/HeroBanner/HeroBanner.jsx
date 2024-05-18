@@ -41,8 +41,7 @@ const HeroBanner = () => {
                 <div className="heroBannerContent">
                     <span className="title">Merhaba</span>
                     <span className="subTitle">
-                    Milyonlarca film, TV şovu ve keşfedilecek kişi.
-                        Şimdi keşfedin.
+                    Milyonlarca film, TV şovu ve keşfedilecek kişi var. Şimdi keşfett!
                     </span>
                     <div className="searchInput">
                         <input

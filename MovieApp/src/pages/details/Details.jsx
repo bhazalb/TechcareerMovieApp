@@ -4,9 +4,9 @@ import "./style.scss";
 import useFetch from "../../hooks/useFetch";
 import Cast from "./cast/Cast";
 import VideosSection from "./videosSection/VideosSection";
-import Similar from "./carousels/Similar";
-import Recommendation from "./carousels/Recommendation";
-import DetailsBanner from "./detailsBanner/detailsBanner";
+import Similar from "./carousel/Similar";
+import Recommendation from "./carousel/Recommendation";
+import DetailsBanner from "./detailsBanner/DetailsBanner";
 
 const Details = () => {
     // useParams hook'u ile URL'den mediaType ve id parametrelerini alıyoruz
