@@ -52,7 +52,8 @@ function App() {
           return genres.map((item) => (allGenres[item.id] = item));
       });
 
-      dispatch(getGenres(allGenres));
+      dispatch(getGeneres(allGenres));
+
   };
   return (
     <BrowserRouter>
