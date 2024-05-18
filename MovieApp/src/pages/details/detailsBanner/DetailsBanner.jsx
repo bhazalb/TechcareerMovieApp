@@ -5,14 +5,14 @@ import dayjs from "dayjs";
 
 import "./style.scss";
 
-import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import useFetch from "../../../hooks/useFetch";
-import Genres from "../../../components/genres/Genres";
-import CircleRating from "../../../components/circleRating/CircleRating";
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper.jsx";
+import useFetch from "../../../hooks/useFetch.jsx";
+import Genres from "../../../components/genres/Genres.jsx";
+import CircleRating from "../../../components/circleRaiting/CircleRating.jsx";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import { PlayIcon } from "../Playbtn";
-import VideoPopup from "../../../components/videoPopup/VideoPopup";
+//import VideoPopup from "../../../components/videoPopup/VideoPopup"; 
 
 const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
@@ -93,14 +93,14 @@ const DetailsBanner = ({ video, crew }) => {
                                             >
                                                 <PlayIcon />
                                                 <span className="text">
-                                                    Watch Trailer
+                                                Fragmanı izle
                                                 </span>
                                             </div>
                                         </div>
 
                                         <div className="overview">
                                             <div className="heading">
-                                                Overview
+                                            Genel Bakış
                                             </div>
                                             <div className="description">
                                                 {data.overview}
@@ -111,7 +111,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.status && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Status:{" "}
+                                                    Durum:{" "}
                                                     </span>
                                                     <span className="text">
                                                         {data.status}
@@ -121,7 +121,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.release_date && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Release Date:{" "}
+                                                    Yayın tarihi:{" "}
                                                     </span>
                                                     <span className="text">
                                                         {dayjs(
@@ -147,7 +147,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {director?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Director:{" "}
+                                                  Yönetmen:{" "}
                                                 </span>
                                                 <span className="text">
                                                     {director?.map((d, i) => (
@@ -165,7 +165,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {writer?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Writer:{" "}
+                                                   Yazar:{" "}
                                                 </span>
                                                 <span className="text">
                                                     {writer?.map((d, i) => (
@@ -183,7 +183,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {data?.created_by?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Creator:{" "}
+                                                    Senarist:{" "}
                                                 </span>
                                                 <span className="text">
                                                     {data?.created_by?.map(

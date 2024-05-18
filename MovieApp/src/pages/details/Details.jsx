@@ -2,11 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./style.scss";
 import useFetch from "../../hooks/useFetch";
+//import Cast from "./cast/Cast";
+//import VideosSection from "./videosSection/VideosSection";
+//import Similar from "./carousels/Similar";
+//import Recommendation from "./carousels/Recommendation";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
-import Cast from "./cast/Cast";
-import VideosSection from "./videosSection/VideosSection";
-import Similar from "./carousels/Similar";
-import Recommendation from "./carousels/Recommendation";
 
 const Details = () => {
     // useParams hook'u ile URL'den mediaType ve id parametrelerini alıyoruz
@@ -22,7 +22,7 @@ const Details = () => {
             <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
 
             {/* Cast bileşenine cast verilerini ve yükleme durumunu geçiriyoruz */}
-            <Cast data={credits?.cast} loading={creditsLoading} />
+           <Cast data={credits?.cast} loading={creditsLoading} />
 
             {/* VideosSection bileşenine video verilerini ve yükleme durumunu geçiriyoruz */}
             <VideosSection data={data} loading={loading} />
