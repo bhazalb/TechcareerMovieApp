@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import dayjs from "dayjs"; //tarih formatı için
+import dayjs from "dayjs";
 
 import "./style.scss";
 
